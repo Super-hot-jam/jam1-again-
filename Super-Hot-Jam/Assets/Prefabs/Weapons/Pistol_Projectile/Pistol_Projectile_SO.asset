@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c2fd131c7b3c64ab73ff177af987e3, type: 3}
   m_Name: Pistol_Projectile_SO
   m_EditorClassIdentifier: 
-  speed: 6500
+  speed: 10000

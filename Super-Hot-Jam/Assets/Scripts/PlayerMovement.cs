@@ -4,12 +4,14 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed = 4;
+    public TimeManager timeManager;
+    public bool isMoving = false;
+    public bool weaponEquipped;
+
     float hori;
     float verti;
     Vector2 movementDirection;
-    public TimeManager timeManager;
-    public bool isMoving = false;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
