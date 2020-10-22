@@ -8,7 +8,7 @@ public class RangedWeaponController : MonoBehaviour
     public RangedWeaponSO weaponSettings; // Get the weapons attributes and settings
     public GameObject projectile;
     public Transform firePoint;
-
+    
     Animator anim;
 
     private void Start()
@@ -27,35 +27,21 @@ public class RangedWeaponController : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Instantiate(projectile, firePoint.position, transform.rotation);
+                Instantiate(projectile, firePoint.position, firePoint.rotation);
                 //anim.SetTrigger("Firing");
             }
         }
 
-        if(weaponSettings.hasSpread)
+        if (weaponSettings.hasSpread) // If the weapon has spread (i.e is a shotgun)
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                float TotalSpread = weaponSettings.spreadAngle / weaponSettings.projectileCount;
-
                 for (int i = 0; i < weaponSettings.projectileCount; i++)
                 {
-                    // Calculate angle of this bullet
-                    float spreadA = TotalSpread * (i + 1);
-                    float spreadB = weaponSettings.spreadAngle / 2.0f;
-                    float spread = spreadB - spreadA + TotalSpread / 2;
-                    float angle = transform.eulerAngles.y;
-
-                    // Create rotation of bullet
-                    Quaternion rotation = Quaternion.Euler(new Vector3(0, spread + angle, 0));
-
-                    // Create bullet
-                    GameObject bullet = Instantiate(projectile);
-                    bullet.transform.position = firePoint.position;
-                    bullet.transform.rotation = rotation;
+                    Instantiate(projectile, firePoint.position, firePoint.rotation);
                 }
             }
         }
     }
-
+    
 }

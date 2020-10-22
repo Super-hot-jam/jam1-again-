@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 95bd07d3dd1033b4a8a2316c9aa7ae8e
+guid: d09431807e73ce74c9d9cbf4dbeed843
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3435888892204856622
-    second: SuperHotPistol-Sheet_0
+      213: -1812760298512959771
+    second: SuperHotPlayer-Sheet_0
   - first:
-      213: 5263409550172532217
-    second: SuperHotPistol-Sheet_1
+      213: -1100189676742638486
+    second: SuperHotPlayer-Sheet_1
+  - first:
+      213: 8250002491736080793
+    second: SuperHotPlayer-Sheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -95,43 +98,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SuperHotPistol-Sheet_0
+      name: SuperHotPlayer-Sheet_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 1
-        height: 5
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 0
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2da4b64b1454150d0800000000000000
-      internalID: -3435888892204856622
+      spriteID: 5e63438ec18c7d6e0800000000000000
+      internalID: -1812760298512959771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SuperHotPistol-Sheet_1
+      name: SuperHotPlayer-Sheet_1
       rect:
         serializedVersion: 2
-        x: 12
-        y: 2
-        width: 1
-        height: 5
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 8
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fdae6169136b0940800000000000000
-      internalID: 5263409550172532217
+      spriteID: a64043c61575bb0f0800000000000000
+      internalID: -1100189676742638486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperHotPlayer-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991440c4e85ed7270800000000000000
+      internalID: 8250002491736080793
       vertices: []
       indices: 
       edges: []

@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 95bd07d3dd1033b4a8a2316c9aa7ae8e
+guid: b7a69c0f3be15324d817036a147a15e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3435888892204856622
-    second: SuperHotPistol-Sheet_0
+      213: -5926138559058505464
+    second: SuperHotGuy-Sheet_0
   - first:
-      213: 5263409550172532217
-    second: SuperHotPistol-Sheet_1
+      213: 6837199966145584903
+    second: SuperHotGuy-Sheet_1
+  - first:
+      213: -3995080152670171219
+    second: SuperHotGuy-Sheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -95,43 +98,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SuperHotPistol-Sheet_0
+      name: SuperHotGuy-Sheet_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 1
-        height: 5
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 0
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2da4b64b1454150d0800000000000000
-      internalID: -3435888892204856622
+      spriteID: 8019299e06022cda0800000000000000
+      internalID: -5926138559058505464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SuperHotPistol-Sheet_1
+      name: SuperHotGuy-Sheet_1
       rect:
         serializedVersion: 2
-        x: 12
-        y: 2
-        width: 1
-        height: 5
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 8
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fdae6169136b0940800000000000000
-      internalID: 5263409550172532217
+      spriteID: 70f9b68e42d92ee50800000000000000
+      internalID: 6837199966145584903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperHotGuy-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf81ea94cf9e88c0800000000000000
+      internalID: -3995080152670171219
       vertices: []
       indices: 
       edges: []
