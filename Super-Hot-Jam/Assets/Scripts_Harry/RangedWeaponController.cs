@@ -17,24 +17,30 @@ public class RangedWeaponController : MonoBehaviour
     private bool hasBeenThrown;
     
     Animator anim;
+    Rigidbody2D rb;
 
     private void Start()
     {
         anim = this.GetComponent<Animator>();
+        rb = this.GetComponent<Rigidbody2D>();
+
         currentAmmo = weaponSettings.ammoCount;
     }
 
     private void Update()
     {
-        FireWeapon();
-        ThrowWeapon();
+        if (weaponActive)
+        {
+            FireWeapon();
+            ThrowWeapon();
+        }
     }
 
     void FireWeapon()
     {
         shotTimer -= Time.deltaTime; // Reduce the time until next shot is available
 
-        if (Input.GetButtonDown("Fire1") && currentAmmo != 0 && weaponActive)
+        if (Input.GetButtonDown("Fire1") && currentAmmo != 0)
         {
             if (shotTimer <= 0) // If next shot is ready
             {
@@ -75,17 +81,33 @@ public class RangedWeaponController : MonoBehaviour
     {
         if(Input.GetButton("Fire1"))
         {
-            throwTimer += Time.deltaTime;
-
-            if(throwTimer >= weaponSettings.throwTime)
-            {
-                hasBeenThrown = true;
-            }
+            throwTimer += Time.deltaTime; // Begin the timer for throwing a gun
         }
 
-        if(hasBeenThrown)
+        if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
         {
+            Debug.Log("READY!");
 
+            if (Input.GetButtonUp("Fire1")) // If the player releases the A button
+            {
+                rb.AddForce(new Vector2(0, -weaponSettings.throwForce * Time.deltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
+                rb.AddTorque(weaponSettings.throwTorque * Time.deltaTime, ForceMode2D.Impulse);
+
+                transform.SetParent(null); // Removes the parent from the weapon
+
+                throwTimer = 0;
+                hasBeenThrown = true;
+
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
