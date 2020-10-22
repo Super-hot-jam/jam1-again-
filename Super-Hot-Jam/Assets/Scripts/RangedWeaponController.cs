@@ -79,25 +79,28 @@ public class RangedWeaponController : MonoBehaviour
 
     void ThrowWeapon()
     {
-        if(Input.GetButton("Fire1"))
+        if (currentAmmo <= 0)
         {
-            throwTimer += Time.unscaledDeltaTime; // Begin the timer for throwing a gun
-        }
-
-        if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
-        {
-            Debug.Log("READY!");
-
-            if (Input.GetButtonUp("Fire1")) // If the player releases the A button
+            if (Input.GetButton("Fire1"))
             {
-                rb.AddForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
-                rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
+                throwTimer += Time.unscaledDeltaTime; // Begin the timer for throwing a gun
+            }
 
-                transform.SetParent(null); // Removes the parent from the weapon
+            if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
+            {
+                Debug.Log("READY!");
 
-                throwTimer = 0;
-                hasBeenThrown = true;
+                if (Input.GetButtonUp("Fire1")) // If the player releases the A button
+                {
+                    rb.AddForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
+                    rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
 
+                    transform.SetParent(null); // Removes the parent from the weapon
+
+                    throwTimer = 0;
+                    hasBeenThrown = true;
+
+                }
             }
         }
     }
