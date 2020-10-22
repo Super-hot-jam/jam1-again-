@@ -17,3 +17,5 @@ MonoBehaviour:
   projectileCount: 1
   ammoCount: 5
   fireRate: 0.5
+  throwTime: 0.65
+  throwForce: 0

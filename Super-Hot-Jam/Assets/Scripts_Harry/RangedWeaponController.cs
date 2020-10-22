@@ -8,9 +8,13 @@ public class RangedWeaponController : MonoBehaviour
     public RangedWeaponSO weaponSettings; // Get the weapons attributes and settings
     public GameObject projectile;
     public Transform firePoint;
+
     [SerializeField] private float currentAmmo = 0;
     [SerializeField] private bool weaponActive = true;
-    private float shotCounter;
+
+    private float shotTimer; // Time until next shot
+    private float throwTimer;
+    private bool hasBeenThrown;
     
     Animator anim;
 
@@ -23,15 +27,16 @@ public class RangedWeaponController : MonoBehaviour
     private void Update()
     {
         FireWeapon();
+        ThrowWeapon();
     }
 
     void FireWeapon()
     {
-        shotCounter -= Time.deltaTime; // Reduce the time until next shot is available
+        shotTimer -= Time.deltaTime; // Reduce the time until next shot is available
 
         if (Input.GetButtonDown("Fire1") && currentAmmo != 0 && weaponActive)
         {
-            if (shotCounter <= 0) // If next shot is ready
+            if (shotTimer <= 0) // If next shot is ready
             {
                 if (!weaponSettings.hasSpread) // If the weapon doesn't have a spread (i.e not a shotgun)
                 {
@@ -39,7 +44,7 @@ public class RangedWeaponController : MonoBehaviour
 
                     Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-                    shotCounter = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
+                    shotTimer = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
                     currentAmmo--;
                 }
 
@@ -59,10 +64,28 @@ public class RangedWeaponController : MonoBehaviour
                         GameObject bullet = Instantiate(projectile, firePoint.position, rotation);
                     }
 
-                    shotCounter = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
+                    shotTimer = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
                     currentAmmo--;
                 }
             }
+        }
+    }
+
+    void ThrowWeapon()
+    {
+        if(Input.GetButton("Fire1"))
+        {
+            throwTimer += Time.deltaTime;
+
+            if(throwTimer >= weaponSettings.throwTime)
+            {
+                hasBeenThrown = true;
+            }
+        }
+
+        if(hasBeenThrown)
+        {
+
         }
     }
 }

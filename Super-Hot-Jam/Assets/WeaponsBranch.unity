@@ -180,7 +180,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1812760298512959771, guid: d09431807e73ce74c9d9cbf4dbeed843, type: 3}
+  m_Sprite: {fileID: -4142230022406954810, guid: 78375e6242c3df44e80e36c4488ffeb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -315,22 +315,16 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.4375, y: -0.3755, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2056805226}
+  m_Children: []
   m_Father: {fileID: 910172106}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2056805226 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
-  m_PrefabInstance: {fileID: 188205748191397870}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &188205748191397870
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1594480686}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 188205747014244992, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_Name
@@ -338,11 +332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.8745
       objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -366,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
