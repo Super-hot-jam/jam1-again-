@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4590552999029539391}
   - component: {fileID: 2759004578195721172}
   - component: {fileID: 6786033498124258142}
+  - component: {fileID: 4615964132894619341}
   m_Layer: 8
   m_Name: Shotgun_Projectile
   m_TagString: Projectile
@@ -174,7 +175,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Time: 0.25
+  m_Time: 0.15
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.125
@@ -196,7 +197,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.6117647, g: 0.1254902, b: 0.1254902, a: 1}
-      key1: {r: 0.6117647, g: 0.1254902, b: 0.1254902, a: 0.19607843}
+      key1: {r: 0.6117647, g: 0.1254902, b: 0.1254902, a: 0.6862745}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -244,3 +245,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSettings: {fileID: 11400000, guid: 8d9b8f5b8b216b844b94e2f659cdddca, type: 2}
+--- !u!114 &4615964132894619341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511284382997016534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef95636cf39e90488a51e3a2c30e005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 1

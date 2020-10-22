@@ -119,6 +119,7 @@ MonoBehaviour:
   weaponSettings: {fileID: 11400000, guid: 66e52e30dc39a644fb1116a6d0b2db38, type: 2}
   projectile: {fileID: 4283782430824406214, guid: 150b50374762d39489b84f73b5ae80e3, type: 3}
   firePoint: {fileID: 8928163976636359717}
+  currentAmmo: 0
 --- !u!1 &9177708520510557138
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9177708520510557138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.188, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5675, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4577139264129492737}

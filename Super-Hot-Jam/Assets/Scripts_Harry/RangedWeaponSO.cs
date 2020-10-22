@@ -9,4 +9,5 @@ public class RangedWeaponSO : ScriptableObject
     public float spreadAngle;
     public float projectileCount;
     public float ammoCount;
+    public float fireRate;
 }

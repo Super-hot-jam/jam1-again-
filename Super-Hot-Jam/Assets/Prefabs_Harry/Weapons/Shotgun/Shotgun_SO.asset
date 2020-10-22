@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun_SO
   m_EditorClassIdentifier: 
   hasSpread: 1
-  spreadAngle: 15
+  spreadAngle: 20
   projectileCount: 5
   ammoCount: 2
+  fireRate: 1

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a658c9295967f43b628744c01ae17c, type: 3}
   m_Name: Pistol_SO
   m_EditorClassIdentifier: 
-  damage: 10
   hasSpread: 0
-  ammoCount: 10
+  spreadAngle: 0
   projectileCount: 1
+  ammoCount: 5
+  fireRate: 0.5
