@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 188205747014244993, guid: 549128d43e7df274fab1834023d2441d, type: 3}
+      propertyPath: weaponActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -360,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 188205747014245023, guid: 549128d43e7df274fab1834023d2441d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -413,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4577139264129492737, guid: f57c0670abb621c45b07b885160338aa, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4577139264129492737, guid: f57c0670abb621c45b07b885160338aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -430,6 +434,10 @@ PrefabInstance:
     - target: {fileID: 4577139264129492740, guid: f57c0670abb621c45b07b885160338aa, type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577139264129492743, guid: f57c0670abb621c45b07b885160338aa, type: 3}
+      propertyPath: weaponActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f57c0670abb621c45b07b885160338aa, type: 3}

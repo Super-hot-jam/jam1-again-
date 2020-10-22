@@ -17,5 +17,6 @@ MonoBehaviour:
   projectileCount: 5
   ammoCount: 2
   fireRate: 1
-  throwTime: 1
-  throwForce: 0
+  throwTime: 0.65
+  throwForce: 650
+  throwTorque: 85
