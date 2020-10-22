@@ -15,7 +15,6 @@ public class PickupWeapon : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
-
     private void Update()
     {
         if (!this.gameObject.GetComponent<RangedWeaponController>().hasBeenThrown)
