@@ -48,12 +48,12 @@ public class PlayerMovement : MonoBehaviour
         if(!isMoving)
         {
           
-             timemanager.Slowtime();
+             timemanager.SlowTime();
             
         }
         if(isMoving)
         {
-            timemanager.speedtime();
+            timemanager.speedupTime();
         }    
      
     }
