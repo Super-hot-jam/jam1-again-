@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a6f25b6d56e764aa4a1498043e9cc7, type: 3}
   m_Name: Dagger
   m_EditorClassIdentifier: 
-  weaponName: Weapon Name
-  weaponReach: 0.3
-  arcDistance: 0.3
-  attackSpeed: 1
+  weaponName: Dagger
+  weaponReach: 10
+  arcDistance: 0.5
+  attackSpeed: 0.8
