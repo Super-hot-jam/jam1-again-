@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
     }
     public void speedupTime()
     {
-        Time.timeScale += (2)* Time.unscaledDeltaTime;
+        Time.timeScale += (1)* Time.unscaledDeltaTime;
         Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
     }
 }
