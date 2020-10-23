@@ -18,6 +18,6 @@ MonoBehaviour:
   ammoCount: 2
   fireRate: 0.5
   throwTime: 0.65
-  throwForce: 1500
+  throwForce: 4000
   throwTorque: 250
   pickupRadius: 1
