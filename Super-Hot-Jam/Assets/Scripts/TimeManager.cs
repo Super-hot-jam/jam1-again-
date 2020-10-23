@@ -8,7 +8,6 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-
         Debug.Log(Time.timeScale);
     }
 
