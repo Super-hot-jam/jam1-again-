@@ -10,6 +10,7 @@ public class RangedWeaponController : MonoBehaviour
     public Transform firePoint;
     public bool weaponActive;
     public bool hasBeenThrown;
+    public ParticleSystem destroyParticles;
 
     [SerializeField] private float currentAmmo = 0;
 
@@ -112,10 +113,11 @@ public class RangedWeaponController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
+        if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Collisions")) && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
         {
-            Destroy(gameObject);
             Destroy(collision.gameObject);
+            Destroy(gameObject);
+            Instantiate(destroyParticles, transform.position, transform.rotation);
         }
     }
 }

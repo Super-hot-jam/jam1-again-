@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         hori = Input.GetAxis("left_joyhori");
         verti = Input.GetAxis("left_joyverti");
         movementDirection = new Vector2(hori * speed, -verti * speed);
-
+        Debug.Log(movementDirection);
         SlowMoving();
     }
 
@@ -30,11 +30,12 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = movementDirection * Time.deltaTime;
 
-        if (movementDirection != Vector2.zero)
+        if (movementDirection.y >= 2500 || movementDirection.y <= -2500 || movementDirection.x >= 2500 || movementDirection.x <= -2500) // Dead zones
         {
             isMoving = true;
             transform.rotation = Quaternion.LookRotation(Vector3.forward, movementDirection);
         }
+
         else if(movementDirection == Vector2.zero)
         {
             isMoving = false;

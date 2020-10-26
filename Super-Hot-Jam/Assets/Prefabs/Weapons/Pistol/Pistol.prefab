@@ -171,6 +171,7 @@ MonoBehaviour:
   firePoint: {fileID: 8928163976636359717}
   weaponActive: 0
   hasBeenThrown: 0
+  destroyParticles: {fileID: 7064872253014641295, guid: 4163599218628714591b60e934608c8e, type: 3}
   currentAmmo: 0
 --- !u!114 &2085376912
 MonoBehaviour:

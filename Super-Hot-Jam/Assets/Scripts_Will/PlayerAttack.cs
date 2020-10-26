@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     public GameObject hitPoint;
     public bool weaponActive;
     public bool hasBeenThrown;
+    public ParticleSystem weaponDestroyParticles;
+    public ParticleSystem enemyDestroyParticles;
 
     [SerializeField]private float attackTimer; // Time until next hit
     [SerializeField]private float throwTimer;
@@ -63,6 +65,8 @@ public class PlayerAttack : MonoBehaviour
 
         if (hitsLeft <= 0)
         {
+            player.weaponEquipped = false;
+            Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -91,15 +95,15 @@ public class PlayerAttack : MonoBehaviour
                 hasBeenThrown = true;
             }
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
+        if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Collisions")) && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
         }
     }
 

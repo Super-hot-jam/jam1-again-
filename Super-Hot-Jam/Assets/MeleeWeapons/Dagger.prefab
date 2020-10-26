@@ -195,6 +195,7 @@ MonoBehaviour:
   hitPoint: {fileID: 4193893827473352042}
   weaponActive: 0
   hasBeenThrown: 0
+  destroyParticles: {fileID: 7064872253014641295, guid: 4163599218628714591b60e934608c8e, type: 3}
   attackTimer: 0
   throwTimer: 0
 --- !u!95 &1633167976
