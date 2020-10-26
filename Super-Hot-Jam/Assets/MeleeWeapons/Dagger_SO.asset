@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1a6f25b6d56e764aa4a1498043e9cc7, type: 3}
-  m_Name: Dagger
+  m_Name: Dagger_SO
   m_EditorClassIdentifier: 
   weaponName: Dagger
-  weaponReach: 10
+  weaponReach: 0.5
   arcDistance: 0.5
   attackSpeed: 0.8
+  pickupRadius: 1
+  hitCount: 3
+  hitRate: 0.5
+  throwTime: 0.65
+  throwForce: 4000
+  throwTorque: 250
