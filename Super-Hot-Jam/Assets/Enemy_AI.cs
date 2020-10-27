@@ -27,6 +27,8 @@ public class Enemy_AI : MonoBehaviour
     public LayerMask weaponMask;
     public LayerMask environmentMask;
 
+    public GameObject deathAnim;
+
     public List<Transform> visibleWeapons = new List<Transform>();
     public GameObject player;
 
@@ -164,6 +166,7 @@ public class Enemy_AI : MonoBehaviour
     private void PickUpWeapon()
     {
         // TODO pick up weapon code
+
     }
 
     private Transform GetClosestWeapon()
@@ -206,7 +209,13 @@ public class Enemy_AI : MonoBehaviour
     public void OnKill()
     {
         // TODO death partical effect
-        Destroy(this,4f);
+        if(deathAnim != null)
+        {
+            GameObject.Instantiate(deathAnim, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject,0.2f);
+            Debug.Log("ive been called");
+
+        }
     }
 
     #endregion

@@ -23,8 +23,25 @@ public class ProjectileController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("yesa");
             Destroy(gameObject);
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Enemy_AI>().OnKill();
+            
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("yesa");
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<Enemy_AI>().OnKill();
+
         }
     }
 }
