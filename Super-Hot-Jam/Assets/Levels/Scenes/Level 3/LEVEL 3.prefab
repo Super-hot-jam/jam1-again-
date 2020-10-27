@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8958135608275675720}
   m_Layer: 0
   m_Name: Wall (22)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 745246426713119723}
   m_Layer: 0
   m_Name: window
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 745246427281417012}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -876,7 +876,7 @@ GameObject:
   - component: {fileID: 745246427912637867}
   m_Layer: 0
   m_Name: Wall (10)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 1222485111969292454}
   m_Layer: 0
   m_Name: Wall (13)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1259,7 +1259,7 @@ GameObject:
   - component: {fileID: 1650526498507023986}
   m_Layer: 0
   m_Name: window (3)
-  m_TagString: Untagged
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 1650526498547096820}
   m_Layer: 0
   m_Name: window (2)
-  m_TagString: Untagged
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1478,7 +1478,7 @@ GameObject:
   - component: {fileID: 1650526498988655144}
   m_Layer: 0
   m_Name: Wall (14)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 1650526499190258699}
   m_Layer: 0
   m_Name: Wall (12)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1832,7 +1832,7 @@ GameObject:
   - component: {fileID: 1650526499709168622}
   m_Layer: 0
   m_Name: Wall (11)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2009,7 +2009,7 @@ GameObject:
   - component: {fileID: 1650526499727975517}
   m_Layer: 0
   m_Name: Wall (17)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2186,7 +2186,7 @@ GameObject:
   - component: {fileID: 1650526500398094006}
   m_Layer: 0
   m_Name: Wall (21)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2379,6 +2379,7 @@ Transform:
   - {fileID: 745246427295520562}
   - {fileID: 745246426981867824}
   - {fileID: 745246427352650933}
+  - {fileID: 1707626894191530397}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2426,7 +2427,7 @@ GameObject:
   - component: {fileID: 7639923796177995594}
   m_Layer: 0
   m_Name: Wall (16)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2633,7 +2634,7 @@ GameObject:
   - component: {fileID: 8861543029507472193}
   m_Layer: 0
   m_Name: Wall (24)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2810,7 +2811,7 @@ GameObject:
   - component: {fileID: 2734858994354895581}
   m_Layer: 0
   m_Name: Wall (23)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2973,3 +2974,65 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0000014, y: 4.000001}
   m_EdgeRadius: 0
+--- !u!1001 &2082427948838381809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7160042046203255239}
+    m_Modifications:
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343560568943068386, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_Name
+      value: Level Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+--- !u!4 &1707626894191530397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+  m_PrefabInstance: {fileID: 2082427948838381809}
+  m_PrefabAsset: {fileID: 0}

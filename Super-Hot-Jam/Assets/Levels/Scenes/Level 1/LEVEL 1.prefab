@@ -30,6 +30,7 @@ Transform:
   - {fileID: 2067289350488590048}
   - {fileID: 2067289350233927906}
   - {fileID: 2067289350403376487}
+  - {fileID: 5384442521727801239}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -141,7 +142,7 @@ GameObject:
   - component: {fileID: 2067289350474494694}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +171,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -318,7 +319,7 @@ GameObject:
   - component: {fileID: 2067289350482637087}
   m_Layer: 0
   m_Name: Wall (6)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +348,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -690,7 +691,7 @@ GameObject:
   - component: {fileID: 2067289350879234328}
   m_Layer: 0
   m_Name: Wall (4)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -719,7 +720,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -867,7 +868,7 @@ GameObject:
   - component: {fileID: 2067289350917491952}
   m_Layer: 0
   m_Name: Wall (3)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -896,7 +897,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1044,7 +1045,7 @@ GameObject:
   - component: {fileID: 2067289350946331769}
   m_Layer: 0
   m_Name: Wall (10)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1073,7 +1074,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1326,7 +1327,7 @@ GameObject:
   - component: {fileID: 2067289351237972309}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1355,7 +1356,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1503,7 +1504,7 @@ GameObject:
   - component: {fileID: 2067289351267142389}
   m_Layer: 0
   m_Name: Wall (2)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1532,7 +1533,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1680,7 +1681,7 @@ GameObject:
   - component: {fileID: 2067289351370150216}
   m_Layer: 0
   m_Name: Wall (9)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1709,7 +1710,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1857,7 +1858,7 @@ GameObject:
   - component: {fileID: 2067289351498907796}
   m_Layer: 0
   m_Name: Wall (7)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1886,7 +1887,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2116,7 +2117,7 @@ GameObject:
   - component: {fileID: 2067289351678773756}
   m_Layer: 0
   m_Name: Wall (5)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2145,7 +2146,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2293,7 +2294,7 @@ GameObject:
   - component: {fileID: 2067289351786844775}
   m_Layer: 0
   m_Name: Wall (8)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2322,7 +2323,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2469,7 +2470,7 @@ GameObject:
   - component: {fileID: 2067289352112392761}
   m_Layer: 0
   m_Name: window
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2565,3 +2566,65 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.23, y: 0.3}
   m_EdgeRadius: 0
+--- !u!1001 &4750612891797024507
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8483177877620672533}
+    m_Modifications:
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.044839792
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.064257406
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.038966
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343560568943068386, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_Name
+      value: Level Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+--- !u!4 &5384442521727801239 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+  m_PrefabInstance: {fileID: 4750612891797024507}
+  m_PrefabAsset: {fileID: 0}

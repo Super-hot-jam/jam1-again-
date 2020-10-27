@@ -30,6 +30,7 @@ Transform:
   - {fileID: 8328433195374248066}
   - {fileID: 8328433195857786496}
   - {fileID: 8328433195422139141}
+  - {fileID: 5563098851971471674}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,7 +48,7 @@ GameObject:
   - component: {fileID: 8008795879752744030}
   m_Layer: 0
   m_Name: Wall (11)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +225,7 @@ GameObject:
   - component: {fileID: 8008795879771812845}
   m_Layer: 0
   m_Name: Wall (17)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,7 +402,7 @@ GameObject:
   - component: {fileID: 8008795879803148308}
   m_Layer: 0
   m_Name: Wall (20)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -578,7 +579,7 @@ GameObject:
   - component: {fileID: 8008795880173224198}
   m_Layer: 0
   m_Name: Wall (21)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -755,7 +756,7 @@ GameObject:
   - component: {fileID: 8008795880268886043}
   m_Layer: 0
   m_Name: Wall (15)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -932,7 +933,7 @@ GameObject:
   - component: {fileID: 8008795880501364765}
   m_Layer: 0
   m_Name: Wall (18)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1108,7 +1109,7 @@ GameObject:
   - component: {fileID: 8008795880959242690}
   m_Layer: 0
   m_Name: window (3)
-  m_TagString: Untagged
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1218,7 +1219,7 @@ GameObject:
   - component: {fileID: 8008795880964918604}
   m_Layer: 0
   m_Name: Wall (19)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1394,7 +1395,7 @@ GameObject:
   - component: {fileID: 8008795881015495492}
   m_Layer: 0
   m_Name: window (2)
-  m_TagString: Untagged
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1503,7 +1504,7 @@ GameObject:
   - component: {fileID: 8008795881258479974}
   m_Layer: 0
   m_Name: window (5)
-  m_TagString: Untagged
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1613,7 +1614,7 @@ GameObject:
   - component: {fileID: 8008795881381047227}
   m_Layer: 0
   m_Name: Wall (12)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1789,7 +1790,7 @@ GameObject:
   - component: {fileID: 8008795881400720282}
   m_Layer: 0
   m_Name: window (6)
-  m_TagString: Untagged
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1899,7 +1900,7 @@ GameObject:
   - component: {fileID: 8008795881448412568}
   m_Layer: 0
   m_Name: Wall (14)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2106,7 +2107,7 @@ GameObject:
   - component: {fileID: 8328433195359040644}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2512,7 +2513,7 @@ GameObject:
   - component: {fileID: 8328433195965094427}
   m_Layer: 0
   m_Name: Wall (10)
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2797,7 +2798,7 @@ GameObject:
   - component: {fileID: 8328433196631014747}
   m_Layer: 0
   m_Name: SpawnPodium
-  m_TagString: Untagged
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2936,7 +2937,7 @@ GameObject:
   - component: {fileID: 8328433197198330971}
   m_Layer: 0
   m_Name: window
-  m_TagString: Colisions
+  m_TagString: Collisions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3032,3 +3033,65 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.23, y: 0.3}
   m_EdgeRadius: 0
+--- !u!1001 &5071308667619336278
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1918173071693368951}
+    m_Modifications:
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343560568943068386, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_Name
+      value: Level Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+--- !u!4 &5563098851971471674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 816542085492242796, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+  m_PrefabInstance: {fileID: 5071308667619336278}
+  m_PrefabAsset: {fileID: 0}
