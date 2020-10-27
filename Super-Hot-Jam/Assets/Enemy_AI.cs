@@ -5,6 +5,11 @@ using Pathfinding;
 
 public class Enemy_AI : MonoBehaviour
 {
+    #region Public Members
+    //Debug variables
+    public bool playerRayDebugging = true;
+    public bool weaponsDebugging = true;
+    
     public enum State
     {
         NullState = 0,
@@ -13,32 +18,36 @@ public class Enemy_AI : MonoBehaviour
         ShootState = 3,
         MeleeState = 4
     }
-
-    public GameObject player;
-
-    public State state = 0;
-    public float enemy_collider = 0.5f;
-    public float shoot_range = 10f;
-    public bool hasWeapon;
-    private bool playerSeen;
-    private bool gunReloaded;
-    public float distFromPlayer;
-    
+    public enum AttackType
+    {
+        Shoot,
+        Melee
+    }
 
     public LayerMask weaponMask;
     public LayerMask environmentMask;
 
     public List<Transform> visibleWeapons = new List<Transform>();
-   
+    public GameObject player;
 
+
+    public State state = 0;
+    public float enemy_collider = 0.5f;
+    public float shoot_range = 10f;
+    public float distFromPlayer;
+    public bool hasWeapon;
+    #endregion
+
+    #region Private Members
+    private bool gunReloaded;
+    private bool playerSeen;
+    
     //Navigation parameters
-    public Transform seekTarget;
-    AIDestinationSetter setter;
+    private Transform seekTarget;
+    private AIDestinationSetter setter;
+    #endregion
 
-    //Debug variables
-    public bool playerRayDebugging = true;
-    public bool weaponsDebugging = true;
-
+    #region Main Methods
     private void Start()
     {
         state = State.GoToPlayerState;
@@ -81,9 +90,10 @@ public class Enemy_AI : MonoBehaviour
         switch (state)
         {
             case State.GoToPlayerState:
+                //if(player is alive)
                 setter.target = player.transform;
 
-                //go to gun transition is a gun is closer than the player
+                // go to gun transition is a gun is closer than the player
                 if(GetClosestWeapon() != null && !hasWeapon)
                 {
                     if(Vector2.Distance(this.transform.position, GetClosestWeapon().position) < distFromPlayer && !(hasWeapon))
@@ -92,7 +102,7 @@ public class Enemy_AI : MonoBehaviour
                     }
                 }
 
-                //shoot transition if has weapon, player seen and gun is reloaded
+                // shoot transition if has weapon, player seen and gun is reloaded
                 if(hasWeapon && playerSeen && gunReloaded)
                 {
                     state = State.ShootState;
@@ -104,19 +114,19 @@ public class Enemy_AI : MonoBehaviour
             case State.GoToGunState:
                 setter.target = GetClosestWeapon();
 
-                //pick up gun code
+                // pick up gun code
                 if (Vector2.Distance(setter.target.position, this.transform.position) < 1f)
                 {
-                    // TODO code for picking up gun
+                    PickUpWeapon();
                     hasWeapon = true;
                 }
 
-                //shoot transition if has weapon and player seen
+                // shoot transition if has weapon and player seen
                 if (hasWeapon && playerSeen)
                 {
                     state = State.ShootState;
                 }
-                //go to player if has weapon and player not in sight
+                // go to player if has weapon and player not in sight
                 else if (hasWeapon && !playerSeen)
                 {
                     state = State.GoToPlayerState;
@@ -125,22 +135,35 @@ public class Enemy_AI : MonoBehaviour
 
                 break;
             case State.ShootState:
-                // TODO code for shooting gun at player need harrys code
-
-
+                Attack(AttackType.Shoot);
                 state = State.GoToPlayerState;
                 
                 break;
             case State.MeleeState:
-                // TODO code for melee need harrys code too
+                Attack(AttackType.Melee);
                 
                 
                 break;
             default:
                 break;
         }
+    }
 
+    private void Attack( AttackType type)
+    {
+        if(type == AttackType.Shoot)
+        {
+            // TODO harrys code here
+        }
+        else if(type == AttackType.Melee)
+        {
+            // TODO harrys code here
+        }
+    }
 
+    private void PickUpWeapon()
+    {
+        // TODO pick up weapon code
     }
 
     private Transform GetClosestWeapon()
@@ -180,6 +203,15 @@ public class Enemy_AI : MonoBehaviour
         }
     }
 
+    public void OnKill()
+    {
+        // TODO death partical effect
+        Destroy(this,4f);
+    }
+
+    #endregion
+
+    #region Utility Methods
     private void OnDrawGizmos()
     {
         if (playerRayDebugging)
@@ -209,4 +241,6 @@ public class Enemy_AI : MonoBehaviour
         }
 
     }
+    #endregion
+
 }

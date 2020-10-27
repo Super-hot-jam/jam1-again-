@@ -10,6 +10,6 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(string name)
     {
-        LevelManager.LoadScene(name, LoadSceneMode.Single);
+       // LevelManager.LoadScene(name, LoadSceneMode.Single);
     }
 }
