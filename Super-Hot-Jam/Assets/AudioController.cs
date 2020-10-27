@@ -62,7 +62,7 @@ public class AudioController : MonoBehaviour
 
         if (pistolPlay)
         {
-            pistol.PlayOneShot(pistolClip, 1f);//Play pistol sound after firing
+            pistol.PlayOneShot(pistolClip, 0.5f);//Play pistol sound after firing
             pistolPlay = false;
         }
 
@@ -82,6 +82,12 @@ public class AudioController : MonoBehaviour
         {
             enemyDeath.PlayOneShot(enemyDeathClip, 0.5f); //Play shotgun sound after firing
             enemyKill = false;
+        }
+
+        if (playerKill)
+        {
+            playerDeath.PlayOneShot(playerDeathClip, 0.5f); //Play shotgun sound after firing
+            playerKill = false;
         }
     }
 }
