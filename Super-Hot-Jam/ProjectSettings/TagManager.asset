@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Projectile
   - Enemy
+  - GunPoint
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,10 @@ TagManager:
   - 
   - Projectile
   - Weapon
+  - Player
+  - Enemy
   - Environment
+  - 
   - 
   - 
   - 

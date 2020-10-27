@@ -8,21 +8,24 @@ public class RangedWeaponController : MonoBehaviour
     public RangedWeaponSO weaponSettings; // Get the weapons attributes and settings
     public GameObject projectile;
     public Transform firePoint;
+    public bool weaponActive;
+    public bool hasBeenThrown;
+    public ParticleSystem destroyParticles;
 
     [SerializeField] private float currentAmmo = 0;
-    [SerializeField] private bool weaponActive = true;
 
     private float shotTimer; // Time until next shot
     private float throwTimer;
-    private bool hasBeenThrown;
     
     Animator anim;
     Rigidbody2D rb;
+    PlayerMovement player;
 
     private void Start()
     {
         anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         currentAmmo = weaponSettings.ammoCount;
     }
@@ -38,12 +41,13 @@ public class RangedWeaponController : MonoBehaviour
 
     void FireWeapon()
     {
-        shotTimer -= Time.unscaledDeltaTime; // Reduce the time until next shot is available
+        shotTimer -= Time.deltaTime; // Reduce the time until next shot is available
 
         if (Input.GetButtonDown("Fire1") && currentAmmo != 0)
         {
             if (shotTimer <= 0) // If next shot is ready
             {
+                // PISTOL/SINGLE SHOT FUNCTIONALITY
                 if (!weaponSettings.hasSpread) // If the weapon doesn't have a spread (i.e not a shotgun)
                 {
                     anim.SetTrigger("Firing");
@@ -54,6 +58,7 @@ public class RangedWeaponController : MonoBehaviour
                     currentAmmo--;
                 }
 
+                // SHOTGUN/SPREAD WEAPON FUNCTIONALITY
                 if (weaponSettings.hasSpread) // If the weapon has spread (i.e is a shotgun)
                 {
                     anim.SetTrigger("Firing");
@@ -88,18 +93,19 @@ public class RangedWeaponController : MonoBehaviour
 
             if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
             {
-                Debug.Log("READY!");
-
                 if (Input.GetButtonUp("Fire1")) // If the player releases the A button
                 {
-                    rb.AddForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
+                    rb.AddRelativeForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
                     rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
+
+                    player.weaponEquipped = false;
 
                     transform.SetParent(null); // Removes the parent from the weapon
 
+                    this.GetComponent<PickupWeapon>().isParented = false;
+
                     throwTimer = 0;
                     hasBeenThrown = true;
-
                 }
             }
         }
@@ -107,10 +113,11 @@ public class RangedWeaponController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
+        if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Collisions")) && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
         {
-            Destroy(gameObject);
             Destroy(collision.gameObject);
+            Destroy(gameObject);
+            Instantiate(destroyParticles, transform.position, transform.rotation);
         }
     }
 }

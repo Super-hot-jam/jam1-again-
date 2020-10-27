@@ -6,12 +6,6 @@ public class TimeManager : MonoBehaviour
 {
     public float slowdownFactor = 0.05f;
 
-    void Update()
-    {
-
-        Debug.Log(Time.timeScale);
-    }
-
     public void SlowTime()
     {
         Time.timeScale = slowdownFactor;

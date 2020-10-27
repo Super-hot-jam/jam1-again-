@@ -13,4 +13,5 @@ public class RangedWeaponSO : ScriptableObject
     public float throwTime; // How long to hold button before gun is throwable
     public float throwForce; // The force behind the throw
     public float throwTorque; // The torque applied with the throw to make it do a super cool sweet spin
+    public float pickupRadius; // The radius for the pickup circle
 }

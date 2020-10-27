@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2446757189572424424}
   - component: {fileID: 3303855162412740651}
   - component: {fileID: 4577139264129492743}
+  - component: {fileID: 2085376912}
   m_Layer: 9
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,8 +169,24 @@ MonoBehaviour:
   weaponSettings: {fileID: 11400000, guid: 66e52e30dc39a644fb1116a6d0b2db38, type: 2}
   projectile: {fileID: 4283782430824406214, guid: 150b50374762d39489b84f73b5ae80e3, type: 3}
   firePoint: {fileID: 8928163976636359717}
+  weaponActive: 0
+  hasBeenThrown: 0
+  destroyParticles: {fileID: 7064872253014641295, guid: 4163599218628714591b60e934608c8e, type: 3}
   currentAmmo: 0
-  weaponActive: 1
+--- !u!114 &2085376912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577139264129492740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67eb49be829c59e42b6db2e40ba03b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSettings: {fileID: 11400000, guid: 66e52e30dc39a644fb1116a6d0b2db38, type: 2}
+  isParented: 0
 --- !u!1 &9177708520510557138
 GameObject:
   m_ObjectHideFlags: 0

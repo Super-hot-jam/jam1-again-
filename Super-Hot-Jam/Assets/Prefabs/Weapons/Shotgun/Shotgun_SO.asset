@@ -16,7 +16,8 @@ MonoBehaviour:
   spreadAngle: 20
   projectileCount: 5
   ammoCount: 2
-  fireRate: 1
+  fireRate: 0.35
   throwTime: 0.65
-  throwForce: 650
-  throwTorque: 85
+  throwForce: 4000
+  throwTorque: 250
+  pickupRadius: 1

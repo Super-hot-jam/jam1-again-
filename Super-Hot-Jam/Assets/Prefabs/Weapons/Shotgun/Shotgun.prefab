@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2958048742110625217}
   - component: {fileID: 712889411960160569}
   - component: {fileID: 188205747014244993}
+  - component: {fileID: 4979631706247428012}
   m_Layer: 9
   m_Name: Shotgun
   m_TagString: Weapon
@@ -168,8 +169,24 @@ MonoBehaviour:
   weaponSettings: {fileID: 11400000, guid: a86369f31fc27c347af29ba881c255d3, type: 2}
   projectile: {fileID: 1511284382997016534, guid: 761c755e488c62047b46bfd8645cf97b, type: 3}
   firePoint: {fileID: 188205747289515759}
+  weaponActive: 0
+  hasBeenThrown: 0
+  destroyParticles: {fileID: 7064872253014641295, guid: 4163599218628714591b60e934608c8e, type: 3}
   currentAmmo: 0
-  weaponActive: 1
+--- !u!114 &4979631706247428012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188205747014244992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67eb49be829c59e42b6db2e40ba03b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSettings: {fileID: 11400000, guid: a86369f31fc27c347af29ba881c255d3, type: 2}
+  isParented: 0
 --- !u!1 &188205747289515758
 GameObject:
   m_ObjectHideFlags: 0
