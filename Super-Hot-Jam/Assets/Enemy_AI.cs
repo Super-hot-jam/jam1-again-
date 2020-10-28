@@ -38,6 +38,9 @@ public class Enemy_AI : MonoBehaviour
     public float shoot_range = 10f;
     public float distFromPlayer;
     public bool hasWeapon;
+
+    public AudioController audio;
+
     #endregion
 
     #region Private Members
@@ -55,6 +58,9 @@ public class Enemy_AI : MonoBehaviour
         state = State.GoToPlayerState;
         setter = GetComponent<AIDestinationSetter>();
         seekTarget = setter.target;
+
+        GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
+        audio = audioControl.GetComponent<AudioController>();
     }
 
     private void Update()
