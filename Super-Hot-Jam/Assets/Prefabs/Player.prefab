@@ -206,3 +206,4 @@ MonoBehaviour:
   timeManager: {fileID: 0}
   isMoving: 0
   weaponEquipped: 0
+  deathAnim: {fileID: 0}
