@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Scenes/Level 4/Level 4_DRAFT.unity
     guid: fa765695fb8a544459be51941b9ab2da
+  - enabled: 0
+    path: Assets/Scenes/MenuScene.unity
+    guid: 8553be13124ad54488e5563aa2b725ad
+  - enabled: 1
+    path: Assets/AI.unity
+    guid: 2e9fdf83c641ddb4597a5c5fc36dcbae
   m_configObjects: {}
