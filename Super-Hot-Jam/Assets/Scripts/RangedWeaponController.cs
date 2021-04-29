@@ -48,17 +48,22 @@ public class RangedWeaponController : MonoBehaviour
     void FireWeapon()
     {
         shotTimer -= Time.deltaTime; // Reduce the time until next shot is available
-
-        if (Input.GetButtonDown("Fire1") && currentAmmo != 0)
+        if (GetComponentInParent<Enemy_AI>() != null)
         {
-            if (shotTimer <= 0) // If next shot is ready
-            {
-                // PISTOL/SINGLE SHOT FUNCTIONALITY
-                if (!weaponSettings.hasSpread) // If the weapon doesn't have a spread (i.e not a shotgun)
-                {
-                    anim.SetTrigger("Firing");
 
-                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire1") && currentAmmo != 0)
+            {
+                if (shotTimer <= 0) // If next shot is ready
+                {
+                    // PISTOL/SINGLE SHOT FUNCTIONALITY
+                    if (!weaponSettings.hasSpread) // If the weapon doesn't have a spread (i.e not a shotgun)
+                    {
+                        anim.SetTrigger("Firing");
+
+                        Instantiate(projectile, firePoint.position, firePoint.rotation);
 
                     shotTimer = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
                     currentAmmo--;
@@ -66,21 +71,25 @@ public class RangedWeaponController : MonoBehaviour
                     audio.pistolPlay = true; //play pistol sound
                 }
 
-                // SHOTGUN/SPREAD WEAPON FUNCTIONALITY
-                if (weaponSettings.hasSpread) // If the weapon has spread (i.e is a shotgun)
-                {
-                    anim.SetTrigger("Firing");
-
-                    float angleStep = weaponSettings.spreadAngle / weaponSettings.projectileCount;
-                    float aimingAngle = firePoint.rotation.eulerAngles.z;
-                    float centeringOffset = (weaponSettings.spreadAngle / 2) - (angleStep / 2); // Offsets every projectile so the spread occurs 
-
-                    for (int i = 0; i < weaponSettings.projectileCount; i++)
+                    // SHOTGUN/SPREAD WEAPON FUNCTIONALITY
+                    if (weaponSettings.hasSpread) // If the weapon has spread (i.e is a shotgun)
                     {
-                        float currentBulletAngle = angleStep * i;
+                        anim.SetTrigger("Firing");
 
-                        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimingAngle + currentBulletAngle - centeringOffset));
-                        GameObject bullet = Instantiate(projectile, firePoint.position, rotation);
+                        float angleStep = weaponSettings.spreadAngle / weaponSettings.projectileCount;
+                        float aimingAngle = firePoint.rotation.eulerAngles.z;
+                        float centeringOffset = (weaponSettings.spreadAngle / 2) - (angleStep / 2); // Offsets every projectile so the spread occurs 
+
+                        for (int i = 0; i < weaponSettings.projectileCount; i++)
+                        {
+                            float currentBulletAngle = angleStep * i;
+
+                            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimingAngle + currentBulletAngle - centeringOffset));
+                            GameObject bullet = Instantiate(projectile, firePoint.position, rotation);
+                        }
+
+                        shotTimer = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
+                        currentAmmo--;
                     }
 
                     shotTimer = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
@@ -94,28 +103,35 @@ public class RangedWeaponController : MonoBehaviour
 
     void ThrowWeapon()
     {
-        if (currentAmmo <= 0)
+        if(GetComponentInParent<Enemy_AI>() != null)
         {
-            if (Input.GetButton("Fire1"))
-            {
-                throwTimer += Time.unscaledDeltaTime; // Begin the timer for throwing a gun
-            }
 
-            if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
+        }
+        else
+        {
+            if (currentAmmo <= 0)
             {
-                if (Input.GetButtonUp("Fire1")) // If the player releases the A button
+                if (Input.GetButton("Fire1"))
                 {
-                    rb.AddRelativeForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
-                    rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
+                    throwTimer += Time.unscaledDeltaTime; // Begin the timer for throwing a gun
+                }
 
-                    player.weaponEquipped = false;
+                if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
+                {
+                    if (Input.GetButtonUp("Fire1")) // If the player releases the A button
+                    {
+                        rb.AddRelativeForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
+                        rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
 
-                    transform.SetParent(null); // Removes the parent from the weapon
+                        player.weaponEquipped = false;
 
-                    this.GetComponent<PickupWeapon>().isParented = false;
+                        transform.SetParent(null); // Removes the parent from the weapon
 
-                    throwTimer = 0;
-                    hasBeenThrown = true;
+                        this.GetComponent<PickupWeapon>().isParented = false;
+
+                        throwTimer = 0;
+                        hasBeenThrown = true;
+                    }
                 }
             }
         }

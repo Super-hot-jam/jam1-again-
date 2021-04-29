@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public TimeManager timeManager;
     public bool isMoving = false;
     public bool weaponEquipped;
+    public GameObject deathAnim;
 
     float hori;
     float verti;
@@ -54,4 +55,14 @@ public class PlayerMovement : MonoBehaviour
             timeManager.SpeedupTime();
         }    
     }
+
+    void OnKill()
+    {
+        if (deathAnim != null)
+        {
+            GameObject.Instantiate(deathAnim, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject, 0.2f);
+        }
+    }
 }
+
