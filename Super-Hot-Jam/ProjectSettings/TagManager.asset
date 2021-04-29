@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collisions
+  - Weapon
+  - Projectile
+  - Enemy
+  - GunPoint
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -14,11 +19,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Weapon
+  - Player
+  - Enemy
+  - Environment
   - 
   - 
   - 

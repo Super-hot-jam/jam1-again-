@@ -15,7 +15,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]private float attackTimer; // Time until next hit
     [SerializeField]private float throwTimer;
     private float hitsLeft; // Number of hits left in the weapon
-    
+
+    public AudioController audio;
+
     Rigidbody2D rb;
     PlayerMovement player;
     Animator anim;
@@ -27,6 +29,9 @@ public class PlayerAttack : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         hitsLeft = weaponSettings.hitCount;
+
+        GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
+        audio = audioControl.GetComponent<AudioController>();
     }
 
     void Update()
@@ -54,6 +59,7 @@ public class PlayerAttack : MonoBehaviour
                     if (collidedObject.CompareTag("Enemy"))
                     {
                         Destroy(collidedObject.gameObject);
+                        audio.meleeHit = true;
                     }
                 }
 
@@ -104,6 +110,7 @@ public class PlayerAttack : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
             Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
+            audio.meleeHit = true;
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class RangedWeaponController : MonoBehaviour
@@ -11,6 +12,8 @@ public class RangedWeaponController : MonoBehaviour
     public bool weaponActive;
     public bool hasBeenThrown;
     public ParticleSystem destroyParticles;
+
+    public AudioController audio; //get audio controller
 
     [SerializeField] private float currentAmmo = 0;
 
@@ -28,6 +31,9 @@ public class RangedWeaponController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         currentAmmo = weaponSettings.ammoCount;
+
+        GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
+        audio = audioControl.GetComponent < AudioController >(); //finds audio controller
     }
 
     private void Update()
@@ -56,6 +62,8 @@ public class RangedWeaponController : MonoBehaviour
 
                     shotTimer = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
                     currentAmmo--;
+
+                    audio.pistolPlay = true; //play pistol sound
                 }
 
                 // SHOTGUN/SPREAD WEAPON FUNCTIONALITY
@@ -77,6 +85,8 @@ public class RangedWeaponController : MonoBehaviour
 
                     shotTimer = weaponSettings.fireRate; // Resets shot counter dependant on the weapons fire rate
                     currentAmmo--;
+
+                    audio.shotgunPlay = true; //play shotgun sound
                 }
             }
         }
@@ -118,6 +128,8 @@ public class RangedWeaponController : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
             Instantiate(destroyParticles, transform.position, transform.rotation);
+
+            audio.enemyKill = true;
         }
     }
 }
