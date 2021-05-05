@@ -60,7 +60,7 @@ public class Enemy_AI : MonoBehaviour
         seekTarget = setter.target;
 
         GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
-        audio = audioControl.GetComponent<AudioController>();
+        //audio = audioControl.GetComponent<AudioController>();
     }
 
     private void Update()
