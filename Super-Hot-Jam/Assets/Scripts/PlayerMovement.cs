@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         hori = Input.GetAxis("left_joyhori");
         verti = Input.GetAxis("left_joyverti");
         movementDirection = new Vector2(hori * speed, -verti * speed);
-        Debug.Log(movementDirection);
+        //Debug.Log(movementDirection);
         SlowMoving();
     }
 
