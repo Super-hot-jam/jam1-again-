@@ -10,6 +10,8 @@ public class PickupMeleeWeapon : MonoBehaviour
 
     PlayerMovement player;
 
+    private bool positionSet = false;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
@@ -19,6 +21,7 @@ public class PickupMeleeWeapon : MonoBehaviour
     {
         if (!this.gameObject.GetComponent<PlayerAttack>().hasBeenThrown)
         {
+            positionSet = false;
             Collider2D[] overlappedColldiers = Physics2D.OverlapCircleAll(transform.position, weaponSettings.pickupRadius); // Check all colliders in a radius
 
             foreach (Collider2D hitCollider in overlappedColldiers)
@@ -28,16 +31,22 @@ public class PickupMeleeWeapon : MonoBehaviour
                     if (!isParented && !player.weaponEquipped)
                     {
                         this.transform.SetParent(hitCollider.gameObject.transform); // Set the parent to the player's gun point object
+                        Debug.Log("parenting to object");
                         isParented = true;
                     }
 
-                    if (isParented)
+                    if (isParented && !positionSet)
                     {
-                        transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, 50 * Time.unscaledDeltaTime); // Position to origin of gunpoint
+                        //Debug.Log("setting transform");
+                        transform.position = Vector3.zero;
+                        transform.localPosition = Vector3.zero;
+                        //transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, 50 * Time.unscaledDeltaTime); // Position to origin of gunpoint
                         transform.localRotation = Quaternion.Euler(0, 0, 180); // Maintain a forward rotation
 
                         this.gameObject.GetComponent<PlayerAttack>().weaponActive = true; // Set the weapon to be active (usable)
                         player.weaponEquipped = true; // Set it so the player has a weapon equipped, avoids picking up multiple
+
+                        positionSet = true;
                     }
                 }
             }

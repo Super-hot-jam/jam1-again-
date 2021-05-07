@@ -9,8 +9,8 @@ public class PlayerAttack : MonoBehaviour
     public GameObject hitPoint;
     public bool weaponActive;
     public bool hasBeenThrown;
-    public ParticleSystem weaponDestroyParticles;
-    public ParticleSystem enemyDestroyParticles;
+    //public ParticleSystem weaponDestroyParticles;
+    //public ParticleSystem enemyDestroyParticles;
 
     [SerializeField]private float attackTimer; // Time until next hit
     [SerializeField]private float throwTimer;
@@ -31,11 +31,12 @@ public class PlayerAttack : MonoBehaviour
         hitsLeft = weaponSettings.hitCount;
 
         GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
-        audio = audioControl.GetComponent<AudioController>();
+        //audio = audioControl.GetComponent<AudioController>();
     }
 
     void Update()
     {
+        
         if (weaponActive)
         {
             Attack();
@@ -52,14 +53,15 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackTimer <= 0)
         {
-            if (Input.GetButtonDown("Fire1") && hitsLeft != 0)
+            if (Input.GetButtonDown("Fire1") && hitsLeft != 0)//if 'a' (controller) is pressed and item has hits left
             {
+                Debug.Log("should be attacking anything in range - a has been pressed");
                 foreach (Collider2D collidedObject in collidersInRange)
                 {
                     if (collidedObject.CompareTag("Enemy"))
                     {
                         Destroy(collidedObject.gameObject);
-                        audio.meleeHit = true;
+                        //audio.meleeHit = true;
                     }
                 }
 
@@ -72,22 +74,24 @@ public class PlayerAttack : MonoBehaviour
         if (hitsLeft <= 0)
         {
             player.weaponEquipped = false;
-            Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
+            //Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
 
     void ThrowWeapon()
     {
-        if (Input.GetButton("Fire1"))
+        /*if (Input.GetButton("Fire2"))//if 'b' (controller) is pressed
         {
+            Debug.Log("begin timer for throw weapon - b has been pressed");
             throwTimer += Time.unscaledDeltaTime; // Begin the timer for throwing a gun
-        }
+        }*/
 
         if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
         {
-            if (Input.GetButtonUp("Fire1")) // If the player releases the A button
+            if (Input.GetButtonUp("Fire2")) // If the player releases the A button
             {
+                Debug.Log("weapon is thrown - b has been released");
                 rb.AddRelativeForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
                 rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
                 anim.enabled = false;
@@ -99,18 +103,19 @@ public class PlayerAttack : MonoBehaviour
 
                 throwTimer = 0;
                 hasBeenThrown = true;
+                weaponActive = false;
             }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Collisions")) && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
+        if (collision.gameObject.CompareTag("Enemy") /*|| collision.gameObject.CompareTag("Collisions"))*/ && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
-            audio.meleeHit = true;
+            //Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
+            //audio.meleeHit = true;
         }
     }
 
