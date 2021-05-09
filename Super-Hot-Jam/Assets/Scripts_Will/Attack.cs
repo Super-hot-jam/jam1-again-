@@ -2,31 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class Attack : MonoBehaviour
 {
     [Header("Setup")]
     public MeleeWeapon weaponSettings;
     public GameObject hitPoint;
     public bool weaponActive;
     public bool hasBeenThrown;
-    //public ParticleSystem weaponDestroyParticles;
-    //public ParticleSystem enemyDestroyParticles;
 
-    [SerializeField]private float attackTimer; // Time until next hit
-    [SerializeField]private float throwTimer;
+    [SerializeField] private float attackTimer; // Time until next hit
+    [SerializeField] private float throwTimer;
     private float hitsLeft; // Number of hits left in the weapon
 
-    public AudioController audio;
-
     Rigidbody2D rb;
-    PlayerMovement player;
+    GameObject wielder = null;
     Animator anim;
 
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        //Wielder = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         hitsLeft = weaponSettings.hitCount;
 
@@ -36,12 +32,22 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        
+
         if (weaponActive)
         {
             //Attack();
             attackTimer -= Time.deltaTime; // Reduce the time until next shot is available
             ThrowWeapon();
+        }
+    }
+
+    public void SetWielder(GameObject character)
+    {
+        wielder = character;
+        if(wielder.GetComponent<Enemy_AI>() == null && wielder.GetComponent<PlayerMovement>() == null)
+        {
+            Debug.LogWarning("No wielder is not valid setting wielder to null");
+            wielder = null;
         }
     }
 
@@ -82,18 +88,24 @@ public class PlayerAttack : MonoBehaviour
 
     public void WeaponAttack(string target)
     {
-        if(weaponActive)
+        if (weaponActive)
         {
             // Get all colliders around player within range of the weapon reach
             Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(hitPoint.transform.position, weaponSettings.weaponReach);
 
             if (attackTimer <= 0)
             {
-                //Debug.Log("should be attacking anything in range - a has been pressed");
+                Debug.Log("should be attacking anything in range - a has been pressed, weapon is active and attack time is less than 0");
                 foreach (Collider2D collidedObject in collidersInRange)
                 {
+                    /*if(target == wielder.tag)
+                    {
+                        Debug.LogWarning("targeting wielder for some reason rip... setting to null target");
+                        target = null;
+                    }*/
                     if (collidedObject.CompareTag(target))
                     {
+                        Debug.Log("attacking " + target);
                         Destroy(collidedObject.gameObject);
                         //audio.meleeHit = true;
                     }
@@ -107,11 +119,21 @@ public class PlayerAttack : MonoBehaviour
             if (hitsLeft <= 0)
             {
                 //player.weaponEquipped = false;
-                player.SetCurrentWeapon();
+                if(wielder.GetComponent<PlayerMovement>() != null)
+                {
+                    wielder.GetComponent<PlayerMovement>().SetCurrentWeapon();
+                }
+                else
+                {
+                    wielder.GetComponent<Enemy_AI>().SetCurrentWeapon();
+                }
+
+
+                //player.GetComponent.SetCurrentWeapon();
                 //Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
-        }    
+        }
     }
 
 
@@ -134,7 +156,15 @@ public class PlayerAttack : MonoBehaviour
                 rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
                 anim.enabled = false;
                 //player.weaponEquipped = false;
-                player.SetCurrentWeapon();
+                if (wielder.GetComponent<PlayerMovement>() != null)
+                {
+                    wielder.GetComponent<PlayerMovement>().SetCurrentWeapon();
+                }
+                else
+                {
+                    wielder.GetComponent<Enemy_AI>().SetCurrentWeapon();
+                }
+                //player.SetCurrentWeapon();
 
                 transform.SetParent(null); // Removes the parent from the weapon
 

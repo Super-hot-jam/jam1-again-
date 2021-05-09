@@ -45,7 +45,7 @@ public class PickupWeapon : MonoBehaviour
                     else if (hitCollider.GetComponentInParent<PlayerMovement>() != null)
                     {
 
-                        if (!isParented && !player.weaponEquipped)
+                        if (!isParented/* && !player.weaponEquipped*/)
                         {
                             this.transform.SetParent(hitCollider.gameObject.transform); // Set the parent to the player's gun point object
                             isParented = true;
@@ -57,7 +57,7 @@ public class PickupWeapon : MonoBehaviour
                             transform.localRotation = Quaternion.Euler(0, 0, 180); // Maintain a forward rotation
 
                             this.gameObject.GetComponent<RangedWeaponController>().weaponActive = true; // Set the weapon to be active (firable)
-                            player.weaponEquipped = true; // Set it so the player has a weapon equipped, avoids picking up multiple
+                            //player.weaponEquipped = true; // Set it so the player has a weapon equipped, avoids picking up multiple
                         }
                     }
                 }

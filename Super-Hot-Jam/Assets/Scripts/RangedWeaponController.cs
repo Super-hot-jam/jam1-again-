@@ -123,7 +123,7 @@ public class RangedWeaponController : MonoBehaviour
                         rb.AddRelativeForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
                         rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
 
-                        player.weaponEquipped = false;
+                        //player.weaponEquipped = false;
 
                         transform.SetParent(null); // Removes the parent from the weapon
 

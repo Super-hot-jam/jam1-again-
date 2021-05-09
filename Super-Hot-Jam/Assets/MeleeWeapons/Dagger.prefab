@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1633167970}
   - component: {fileID: 3018048885230088930}
   - component: {fileID: 4193893828054154651}
-  - component: {fileID: 4193893828054154726}
+  - component: {fileID: 978562410443773974}
   - component: {fileID: 1633167976}
   m_Layer: 9
   m_Name: Dagger
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSettings: {fileID: 11400000, guid: fff903f0a7bd96842aed38a8f51f10ff, type: 2}
   isParented: 0
---- !u!114 &4193893828054154726
+--- !u!114 &978562410443773974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,14 +188,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4193893828054154650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55b196742f08c049a3c86af4861d938, type: 3}
+  m_Script: {fileID: 11500000, guid: 23d55b09f64c78a4c8c8189ddf7f0f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSettings: {fileID: 11400000, guid: fff903f0a7bd96842aed38a8f51f10ff, type: 2}
   hitPoint: {fileID: 4193893827473352042}
   weaponActive: 0
   hasBeenThrown: 0
-  destroyParticles: {fileID: 7064872253014641295, guid: 4163599218628714591b60e934608c8e, type: 3}
   attackTimer: 0
   throwTimer: 0
 --- !u!95 &1633167976

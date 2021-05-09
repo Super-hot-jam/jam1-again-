@@ -9,7 +9,9 @@ public class Enemy_AI : MonoBehaviour
     //Debug variables
     public bool playerRayDebugging = true;
     public bool weaponsDebugging = true;
-    
+
+    GameObject equiped_weapon;
+
     public enum State
     {
         NullState = 0,
@@ -65,7 +67,10 @@ public class Enemy_AI : MonoBehaviour
 
     private void Update()
     {
-
+        if(player == null)
+        {
+            return;
+        }
         // Update state transition data
         //.. distance from player and 
         distFromPlayer = Vector2.Distance(this.transform.position, player.transform.position);
@@ -101,20 +106,38 @@ public class Enemy_AI : MonoBehaviour
                 //if(player is alive)
                 setter.target = player.transform;
 
-                // go to gun transition is a gun is closer than the player
-                if(GetClosestWeapon() != null && !hasWeapon)
+                if (hasWeapon)
                 {
-                    if(Vector2.Distance(this.transform.position, GetClosestWeapon().position) < distFromPlayer && !(hasWeapon))
+                    float weaponRange = equiped_weapon.GetComponent<Attack>().weaponSettings.weaponReach;
+                    if (Vector2.Distance(equiped_weapon.transform.position, player.transform.position) < weaponRange)
                     {
-                        state = State.GoToGunState;
+                        state = State.MeleeState;
                     }
                 }
 
+                // go to gun transition is a gun is closer than the player
+                if (GetClosestWeapon() != null && !hasWeapon)
+                {
+                    try
+                    {
+                        if (Vector2.Distance(this.transform.position, GetClosestWeapon().position) < distFromPlayer && !(hasWeapon))
+                        {
+                            state = State.GoToGunState;
+                        }
+                    }catch
+                    {
+                        //Debug.Log("there are no target objects");
+                    }
+                    
+                }
+
+                
+                
                 // shoot transition if has weapon, player seen and gun is reloaded
-                if(hasWeapon && playerSeen && gunReloaded)
+                /*if(hasWeapon && playerSeen && gunReloaded)
                 {
                     state = State.ShootState;
-                }
+                }*/
 
 
                 
@@ -123,11 +146,24 @@ public class Enemy_AI : MonoBehaviour
                 setter.target = GetClosestWeapon();
 
                 // pick up gun code
-                if (Vector2.Distance(setter.target.position, this.transform.position) < 1f)
+                try
                 {
-                    PickUpWeapon();
-                    hasWeapon = true;
+                    /*if (Vector2.Distance(setter.target.position, this.transform.position) < 1f)
+                    {
+                        PickUpWeapon();
+                        hasWeapon = true;
+                    }*/
+                    if(equiped_weapon != null)
+                    {
+                        hasWeapon = true;
+                        state = State.GoToPlayerState;
+                    }
                 }
+                catch
+                {
+                    //Debug.Log("there are no target objects");
+                }
+                
 
                 // shoot transition if has weapon and player seen
                 if (hasWeapon && playerSeen)
@@ -166,6 +202,12 @@ public class Enemy_AI : MonoBehaviour
         else if(type == AttackType.Melee)
         {
             // TODO harrys code here
+            if (equiped_weapon != null)//if 'a' (controller) is pressed
+            {
+                Debug.Log("attacking player");
+                equiped_weapon.GetComponent<Attack>().WeaponAttack("Player");
+                state = State.GoToPlayerState;
+            }
         }
     }
 
@@ -178,10 +220,14 @@ public class Enemy_AI : MonoBehaviour
     private Transform GetClosestWeapon()
     {
         Transform closestWeapon = null;
+        
         if (visibleWeapons.Count == 0)
+        {
             return closestWeapon;
+        }         
         else
         {
+            //Debug.Log("number of visable weapons: " + visibleWeapons.Count.ToString());
             foreach (Transform w in visibleWeapons)
             {
                 if (closestWeapon == null)
@@ -205,9 +251,12 @@ public class Enemy_AI : MonoBehaviour
         {
             Transform weapon = weaponsInRange[i].transform;
             Vector3 dir = (weapon.position - this.transform.position).normalized;
-            if (!Physics.Raycast(this.transform.position, dir, 5f, environmentMask))
+            if (!Physics.Raycast(transform.position, dir, 5f, environmentMask))
             {
-                visibleWeapons.Add(weapon);
+                if(!weapon.gameObject.GetComponent<PickupMeleeWeapon>().isParented)
+                {
+                    visibleWeapons.Add(weapon);
+                }
             }
         }
     }
@@ -222,6 +271,15 @@ public class Enemy_AI : MonoBehaviour
             Debug.Log("ive been called");
 
         }
+    }
+
+    public void SetCurrentWeapon(GameObject weapon)//used to set new weapon
+    {
+        equiped_weapon = weapon;
+    }
+    public void SetCurrentWeapon()//used for removing weapon
+    {
+        equiped_weapon = null;
     }
 
     #endregion
@@ -239,7 +297,12 @@ public class Enemy_AI : MonoBehaviour
                 Gizmos.color = Color.green;
             else
                 Gizmos.color = Color.red;
-            Gizmos.DrawLine(this.transform.position, player.transform.position);
+            try 
+            {
+                Gizmos.DrawLine(this.transform.position, player.transform.position);
+            }
+            catch { }
+            
         }
 
         
