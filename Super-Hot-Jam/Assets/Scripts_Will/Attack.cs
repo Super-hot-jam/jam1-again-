@@ -37,7 +37,7 @@ public class Attack : MonoBehaviour
         {
             //Attack();
             attackTimer -= Time.deltaTime; // Reduce the time until next shot is available
-            ThrowWeapon();
+            //ThrowWeapon();
         }
     }
 
@@ -145,7 +145,7 @@ public class Attack : MonoBehaviour
 
 
 
-    void ThrowWeapon()
+    public void ThrowWeapon()
     {
         /*if (Input.GetButton("Fire2"))//if 'b' (controller) is pressed
         {
@@ -153,41 +153,45 @@ public class Attack : MonoBehaviour
             throwTimer += Time.unscaledDeltaTime; // Begin the timer for throwing a gun
         }*/
 
-        if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
+        Debug.Log("weapon is thrown - b has been released");
+        rb.AddRelativeForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
+        rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
+        anim.enabled = false;
+        //player.weaponEquipped = false;
+        if (wielder.GetComponent<PlayerMovement>() != null)
         {
-            if (Input.GetButtonUp("Fire2")) // If the player releases the A button
-            {
-                Debug.Log("weapon is thrown - b has been released");
-                rb.AddRelativeForce(new Vector2(0, -weaponSettings.throwForce * Time.unscaledDeltaTime), ForceMode2D.Impulse); // Apply a force to the weapon
-                rb.AddTorque(weaponSettings.throwTorque * Time.unscaledDeltaTime, ForceMode2D.Impulse);
-                anim.enabled = false;
-                //player.weaponEquipped = false;
-                if (wielder.GetComponent<PlayerMovement>() != null)
-                {
-                    wielder.GetComponent<PlayerMovement>().SetCurrentWeapon();
-                }
-                else
-                {
-                    wielder.GetComponent<Enemy_AI>().SetCurrentWeapon();
-                }
-                //player.SetCurrentWeapon();
-
-                transform.SetParent(null); // Removes the parent from the weapon
-
-                this.GetComponent<PickupMeleeWeapon>().isParented = false;
-
-                throwTimer = 0;
-                hasBeenThrown = true;
-                weaponActive = false;
-            }
+            wielder.GetComponent<PlayerMovement>().SetCurrentWeapon();
         }
+        else
+        {
+            wielder.GetComponent<Enemy_AI>().SetCurrentWeapon();
+        }
+        //player.SetCurrentWeapon();
+
+        transform.SetParent(null); // Removes the parent from the weapon
+
+        this.GetComponent<PickupMeleeWeapon>().isParented = false;
+
+        throwTimer = 0;
+        hasBeenThrown = true;
+        weaponActive = false;
+
+        /*if (throwTimer >= weaponSettings.throwTime)  // If the timer is complete
+        {
+           
+            /*if (Input.GetButtonUp("Fire2")) // If the player releases the A button
+            {
+                
+            }*/
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") /*|| collision.gameObject.CompareTag("Collisions"))*/ && hasBeenThrown) // If the weapon collides with an enemy and the weapon has been thrown
         {
-            Destroy(collision.gameObject);
+            collision.transform.GetComponent<Enemy_AI>().OnKill();
+            //Destroy(collision.gameObject);
             Destroy(gameObject);
             //Instantiate(weaponDestroyParticles, transform.position, transform.rotation);
             //audio.meleeHit = true;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class menuManager : MonoBehaviour
 {
@@ -74,7 +75,7 @@ public class menuManager : MonoBehaviour
         }
 
         if (EventSystem.current.currentSelectedGameObject == play_button)
-        {
+        {            
             if (Random.Range(0.0f, 1.0f) >= 0.02f)
             {
                 play_description.SetActive(true);
@@ -104,5 +105,10 @@ public class menuManager : MonoBehaviour
     {
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
+    }
+
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene("Level 1_Final");
     }
 }

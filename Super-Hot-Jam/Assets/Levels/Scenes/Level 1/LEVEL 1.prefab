@@ -3155,6 +3155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6240289413857226184, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6443274598998553421, guid: 628e9c9e18251d144b00c6750449345b, type: 3}
       propertyPath: exit_door
       value: 

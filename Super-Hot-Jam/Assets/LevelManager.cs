@@ -10,16 +10,28 @@ public class LevelManager : MonoBehaviour
     public string name_of_next_level;
     public Animator transition_anim;
     public float transition_time = 1f;
+    public TimeManager time;
 
     List<GameObject> bad_guys = new List<GameObject>();
     GameObject player;
 
+    bool scene_in_transition = true;
+
     // Start is called before the first frame update
     void Start() 
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
+            time = GameObject.Find("TimeManager").GetComponent<TimeManager>();
+            StartCoroutine(Transitoning());
 
-        StartCoroutine(CheckReadyToMoveOn());
+            StartCoroutine(CheckReadyToMoveOn());
+    }
+
+    IEnumerator Transitoning()
+    {
+        yield return new WaitForSecondsRealtime(transition_time);
+
+        scene_in_transition = false;
     }
 
     public void LoadLevel(string name)
@@ -34,22 +46,39 @@ public class LevelManager : MonoBehaviour
 
         LoadLevel(name_of_next_level);
     }
+    
+    public bool SceneTransitioning()
+    {
+        return scene_in_transition;
+    }
 
     bool CheckPlayerAtEnd()
     {
-        if (level_transition.bounds.Contains(player.transform.position))
+        try
         {
-            return true;
+            if (level_transition.bounds.Contains(player.transform.position))
+            {
+                return true;
+            }
         }
+        catch
+        {
+            GameOver();
+        }
+        
         return false;
     }
 
     IEnumerator LoadScene(string scene_name)
     {
+        time.SpeedupTime();
         transition_anim.SetTrigger("StartFade");
+        scene_in_transition = true;
+        StartCoroutine(Transitoning());
 
         yield return new WaitForSeconds(transition_time);
 
+        time.SlowTime();
         SceneManager.LoadScene(scene_name);
     }
 

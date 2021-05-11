@@ -113,14 +113,19 @@ public class Enemy_AI : MonoBehaviour
 
                 if (hasWeapon)
                 {
-                    float weaponRange = equiped_weapon.GetComponent<Attack>().weaponSettings.weaponReach;
-                    Transform hitpoint = equiped_weapon.transform.GetChild(0);
- 
-                    if (Vector2.Distance(hitpoint.position, player.transform.position) < weaponRange)
+                    try
                     {
-                        state = State.MeleeState;
-                        break;
+                        float weaponRange = equiped_weapon.GetComponent<Attack>().weaponSettings.weaponReach;
+                        Transform hitpoint = equiped_weapon.transform.GetChild(0);
+
+                        if (Vector2.Distance(hitpoint.position, player.transform.position) < weaponRange)
+                        {
+                            state = State.MeleeState;
+                            break;
+                        }
                     }
+                    catch { }
+                    
                 }
 
                 // go to gun transition is a gun is closer than the player
