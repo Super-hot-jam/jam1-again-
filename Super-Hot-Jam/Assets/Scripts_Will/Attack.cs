@@ -95,7 +95,6 @@ public class Attack : MonoBehaviour
 
             if (attackTimer <= 0)
             {
-                Debug.Log("should be attacking anything in range - a has been pressed, weapon is active and attack time is less than 0");
                 foreach (Collider2D collidedObject in collidersInRange)
                 {
                     /*if(target == wielder.tag)
@@ -105,8 +104,15 @@ public class Attack : MonoBehaviour
                     }*/
                     if (collidedObject.CompareTag(target))
                     {
-                        Debug.Log("attacking " + target);
-                        Destroy(collidedObject.gameObject);
+                        if(collidedObject.GetComponent<Enemy_AI>() != null)
+                        {
+                            collidedObject.GetComponent<Enemy_AI>().OnKill();
+                        }
+                        else
+                        {
+                            collidedObject.GetComponent<PlayerMovement>().OnKill();
+                        }
+                        
                         //audio.meleeHit = true;
                     }
                 }

@@ -57,12 +57,20 @@ public class PlayerMovement : MonoBehaviour
     {
         equiped_player_weapon = null;
     }
+    public bool HasWeapon()
+    {
+        if(equiped_player_weapon == null)
+        {
+            return false;
+        }
+
+        return true;
+    }
 
     void Combat()
     {
         if (Input.GetButtonDown("Fire1") & equiped_player_weapon != null)//if 'a' (controller) is pressed
         {
-            Debug.Log("reqiesting attack - fire button pressed and equipped weapon is: " + equiped_player_weapon.name);
             equiped_player_weapon.GetComponent<Attack>().WeaponAttack("Enemy");
         }
     }
@@ -80,13 +88,17 @@ public class PlayerMovement : MonoBehaviour
         }    
     }
 
-    void OnKill()
+    public void OnKill()
     {
         if (deathAnim != null)
         {
             GameObject.Instantiate(deathAnim, this.transform.position, this.transform.rotation);
-            Destroy(this.gameObject, 0.2f);
+            
         }
+        Destroy(this.gameObject, 0.2f);
+
+        LevelManager level_manager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
+        level_manager.GameOver();
     }
 }
 

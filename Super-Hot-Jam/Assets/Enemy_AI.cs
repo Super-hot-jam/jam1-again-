@@ -52,17 +52,22 @@ public class Enemy_AI : MonoBehaviour
     //Navigation parameters
     private Transform seekTarget;
     private AIDestinationSetter setter;
+
+    private LevelManager level_manager;
     #endregion
 
     #region Main Methods
     private void Start()
     {
+        level_manager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
         state = State.GoToPlayerState;
         setter = GetComponent<AIDestinationSetter>();
         seekTarget = setter.target;
 
         GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
         //audio = audioControl.GetComponent<AudioController>();
+
+        level_manager.AddToEnemyList(gameObject);
     }
 
     private void Update()
@@ -109,9 +114,12 @@ public class Enemy_AI : MonoBehaviour
                 if (hasWeapon)
                 {
                     float weaponRange = equiped_weapon.GetComponent<Attack>().weaponSettings.weaponReach;
-                    if (Vector2.Distance(equiped_weapon.transform.position, player.transform.position) < weaponRange)
+                    Transform hitpoint = equiped_weapon.transform.GetChild(0);
+ 
+                    if (Vector2.Distance(hitpoint.position, player.transform.position) < weaponRange)
                     {
                         state = State.MeleeState;
+                        break;
                     }
                 }
 
@@ -204,7 +212,6 @@ public class Enemy_AI : MonoBehaviour
             // TODO harrys code here
             if (equiped_weapon != null)//if 'a' (controller) is pressed
             {
-                Debug.Log("attacking player");
                 equiped_weapon.GetComponent<Attack>().WeaponAttack("Player");
                 state = State.GoToPlayerState;
             }
@@ -268,9 +275,9 @@ public class Enemy_AI : MonoBehaviour
         {
             GameObject.Instantiate(deathAnim, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject,0.2f);
-            Debug.Log("ive been called");
-
         }
+
+        level_manager.RemoveEnemyFromList(gameObject);
     }
 
     public void SetCurrentWeapon(GameObject weapon)//used to set new weapon
@@ -281,6 +288,15 @@ public class Enemy_AI : MonoBehaviour
     {
         equiped_weapon = null;
     }
+    public bool HasWeapon()
+    {
+        if(equiped_weapon == null)
+        {
+            return false;
+        }
+
+        return true;
+    }    
 
     #endregion
 

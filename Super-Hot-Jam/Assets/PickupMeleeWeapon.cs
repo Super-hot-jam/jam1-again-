@@ -32,7 +32,6 @@ public class PickupMeleeWeapon : MonoBehaviour
                     if (!isParented/* && !player.weaponEquipped*/)
                     {
                         this.transform.SetParent(hitCollider.gameObject.transform); // Set the parent to the player's gun point object
-                        Debug.Log("parenting to object");
                         isParented = true;
                     }
 
@@ -50,16 +49,21 @@ public class PickupMeleeWeapon : MonoBehaviour
                         Transform parent = hitCollider.gameObject.transform.parent;
                         if (parent.GetComponent<PlayerMovement>() != null & !registeredWeapon)
                         {
-                            Debug.Log("Setting current weapon in player as: " + gameObject.name);
-                            parent.GetComponent<PlayerMovement>().SetCurrentWeapon(gameObject);
-                            registeredWeapon = true;
+                            if(parent.GetComponent<PlayerMovement>().HasWeapon() == false)
+                            {
+                                parent.GetComponent<PlayerMovement>().SetCurrentWeapon(gameObject);
+                                registeredWeapon = true;
+                            }                        
                         }
                         else if(parent.GetComponent<Enemy_AI>() != null & !registeredWeapon)
                         {
-                            Debug.Log("Setting current weapon in AI as: " + gameObject);
-                            parent.GetComponent<Enemy_AI>().SetCurrentWeapon(gameObject);
-                            gameObject.GetComponent<Rigidbody2D>().simulated = false;
-                            registeredWeapon = true;
+                            if(parent.GetComponent<Enemy_AI>().HasWeapon() == false)
+                            {
+                                parent.GetComponent<Enemy_AI>().SetCurrentWeapon(gameObject);
+                                Debug.Log("rb simulated set to false");
+                                gameObject.GetComponent<Rigidbody2D>().simulated = false;
+                                registeredWeapon = true;
+                            } 
                         }
                         gameObject.GetComponent<Attack>().SetWielder(parent.gameObject);
                         gameObject.GetComponent<Attack>().weaponActive = true;
