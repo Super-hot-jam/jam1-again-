@@ -83,13 +83,26 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && equiped_player_weapon != null)//if 'a' (controller) is pressed
         {
-            equiped_player_weapon.GetComponent<Attack>().WeaponAttack("Enemy");
+            try 
+            {
+                equiped_player_weapon.GetComponent<Attack>().WeaponAttack("Enemy");
+            }
+            catch { }
+            
         }
 
         if (Input.GetButtonDown("Fire2") && equiped_player_weapon != null)//if 'a' (controller) is pressed
         {
-            Debug.Log("Trying to throw");
-            equiped_player_weapon.GetComponent<Attack>().ThrowWeapon();
+            
+            try 
+            {
+                equiped_player_weapon.GetComponent<Attack>().ThrowWeapon();
+            }
+            catch 
+            {
+                //Debug.Log("Trying to throw");
+            }
+            
         }
     }
 

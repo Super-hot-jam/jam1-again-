@@ -9,14 +9,14 @@ public class ProjectileController : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public AudioController audio;
+    //public AudioController audio;
 
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
 
-        GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
-        audio = audioControl.GetComponent<AudioController>();
+        //GameObject audioControl = GameObject.FindGameObjectWithTag("Audio");
+        //audio = audioControl.GetComponent<AudioController>();
     }
 
     private void FixedUpdate()
@@ -36,7 +36,7 @@ public class ProjectileController : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<Enemy_AI>().OnKill();
 
-            audio.enemyKill = true;
+            //audio.enemyKill = true;
         }
     }
 
@@ -48,7 +48,7 @@ public class ProjectileController : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<Enemy_AI>().OnKill();
 
-            audio.enemyKill = true;
+            //audio.enemyKill = true;
         }
     }
 }

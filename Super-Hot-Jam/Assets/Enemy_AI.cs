@@ -265,10 +265,15 @@ public class Enemy_AI : MonoBehaviour
             Vector3 dir = (weapon.position - this.transform.position).normalized;
             if (!Physics.Raycast(transform.position, dir, 5f, environmentMask))
             {
-                if(!weapon.gameObject.GetComponent<PickupMeleeWeapon>().isParented)
+                try 
                 {
-                    visibleWeapons.Add(weapon);
+                    if (!weapon.gameObject.GetComponent<PickupMeleeWeapon>().isParented)
+                    {
+                        visibleWeapons.Add(weapon);
+                    }
                 }
+                catch { }
+                
             }
         }
     }

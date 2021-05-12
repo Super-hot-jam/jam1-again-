@@ -12,6 +12,9 @@ public class LevelManager : MonoBehaviour
     public float transition_time = 1f;
     public TimeManager time;
 
+    public List<GameObject> LevelWeapons;
+    public List<GameObject> EquippedWeapons;
+
     List<GameObject> bad_guys = new List<GameObject>();
     GameObject player;
 
