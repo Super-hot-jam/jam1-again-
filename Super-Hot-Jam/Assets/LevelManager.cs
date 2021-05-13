@@ -112,6 +112,6 @@ public class LevelManager : MonoBehaviour
 
     public void GameOver()
     {
-        LoadLevel("MenuScene");
+        LoadLevel("SampleScene");
     }
 }
